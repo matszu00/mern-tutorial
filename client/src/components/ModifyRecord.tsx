@@ -13,11 +13,11 @@ export default function Record() {
 
 	useEffect(() => {
 		async function fetchData() {
-			const id = params.id?.toString() || undefined;
+			const id = params.id?.toString();
 			if (!id) return;
 			setIsNew(false);
-			const response = await fetch(
-				`http://localhost:5050/record/${params.id.toString()}`
+			const response: Response = await fetch(
+				`http://localhost:5050/record/${params.id!.toString()}`
 			);
 			if (!response.ok) {
 				const message = `An error has occurred: ${response.statusText}`;
@@ -37,14 +37,14 @@ export default function Record() {
 	}, [params.id, navigate]);
 
 	// These methods will update the state properties.
-	function updateForm(value) {
+	function updateForm(value: any) {
 		return setForm((prev) => {
 			return { ...prev, ...value };
 		});
 	}
 
 	// This function will handle the submission.
-	async function onSubmit(e) {
+	async function onSubmit(e: any) {
 		e.preventDefault();
 		const person = { ...form };
 		try {

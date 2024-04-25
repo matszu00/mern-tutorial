@@ -5,7 +5,7 @@ import {
 	RouterProvider,
 } from "react-router-dom";
 import App from "./App";
-import Record from "./components/Record";
+import Record from "./components/ModifyRecord";
 import RecordList from "./components/RecordList";
 import "./index.css";
 
